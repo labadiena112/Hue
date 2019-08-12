@@ -1,0 +1,56 @@
+{
+    "name": "Hue",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node node_modules/react-native/local-cli/cli.js start",
+        "androidc": "cd android && ./gradlew clean && cd ../ && react-native run-android",
+        "android": "react-native run-android",
+        "test": "jest",
+        "remotedev": "remotedev-debugger --injectserver",
+        "postinstall": "npm run remotedev && rndebugger-open",
+        "androidd": "cd android && ./gradlew assembleRelease && adb install -r ./app/build/outputs/apk/release/app-release.apk && cd ..",
+        "androidi": "adb install -r ./android/app/build/outputs/apk/release/app-release.apk && cd ..",
+        "lint": "eslint src test *.js",
+        "ios": "cd ios && open gelezinkelis.xcworkspace",
+        "iosc": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
+        "podi": "cd ios && rm -rf Pods && rm -rf Podfile.lock && pod install"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.2.0",
+        "immutability-helper": "^3.0.0",
+        "native-base": "^2.10.0",
+        "react": "16.6.3",
+        "react-native": "0.57.8",
+        "react-native-gesture-handler": "^1.0.15",
+        "react-native-get-pixel": "^0.0.5",
+        "react-native-linear-gradient": "^2.5.3",
+        "react-native-navigation": "^2.8.0",
+        "react-native-progress": "^3.5.0",
+        "react-native-sqlite-storage": "^3.3.9",
+        "react-native-vector-icons": "^6.2.0",
+        "react-native-zip-archive": "^3.0.1",
+        "react-redux": "^6.0.0",
+        "redux": "^4.0.1",
+        "redux-thunk": "^2.3.0",
+        "rn-fetch-blob": "^0.10.15"
+    },
+    "remotedev": {
+        "hostname": "192.168.1.207",
+        "port": 5678
+    },
+    "devDependencies": {
+        "babel-jest": "23.6.0",
+        "eslint": "^5.10.0",
+        "jest": "23.6.0",
+        "metro-react-native-babel-preset": "0.51.1",
+        "react-native-debugger-open": "^0.3.17",
+        "react-test-renderer": "16.6.3",
+        "redux-logger": "^3.0.6",
+        "remote-redux-devtools": "^0.5.14",
+        "remotedev-rn-debugger": "^0.8.3"
+    },
+    "jest": {
+        "preset": "react-native"
+    }
+}
